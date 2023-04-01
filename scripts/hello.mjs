@@ -2,4 +2,5 @@
 
 console.log("Hello, world!");
 
-process.env.VAR1 = "hello";
+const VAR1 = "hello";
+$.prefix += `export VAR1=${VAR1};`;
