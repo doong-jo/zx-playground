@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  push:
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, default]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          registry-url: "https://npm.pkg.github.com"
+
+      - name: Run
+        run: npx zx scripts/hello.mjs && npx zx scripts/world.mjs
